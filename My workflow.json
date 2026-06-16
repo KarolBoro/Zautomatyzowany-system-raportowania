@@ -1,0 +1,73 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "e08af71d-c3d1-4f22-b060-bf88c9e606e7",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "5eb5954c-539e-4423-8bc5-66de51b7f90b",
+      "name": "Webhook",
+      "webhookId": "e08af71d-c3d1-4f22-b060-bf88c9e606e7"
+    },
+    {
+      "parameters": {
+        "fromEmail": "karol.borowski555@gmail.com",
+        "toEmail": "karol.borowski555@gmail.com",
+        "subject": "[System automatyzacji] Raport ",
+        "html": "=Status operacji: {{$json.body.status}}\nPrzetworzono i naprawiono wierszy: {{$json.body.ilosc_wierszy}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "6ff547a7-6c02-4d8c-9cc0-2eb9f0535d69",
+      "name": "Send an Email",
+      "webhookId": "8903826c-4aef-4e4a-9a5d-8bbb71e9adc4",
+      "credentials": {
+        "smtp": {
+          "id": "TUrwKEHJ4XUAgAZT",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Send an Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "0b7cb96e-f65c-41a7-bb06-1ad430d078b7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8e09e49cd836674e7c4aa026dc0a6ecfd5f1a6b842eff15f25b51edc753f8782"
+  },
+  "nodeGroups": [],
+  "id": "1ur7iMb4rz0VXve8",
+  "tags": []
+}
