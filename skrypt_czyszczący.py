@@ -4,7 +4,7 @@ from thefuzz import process
 import re
 import requests
 
-DB_URL = "postgresql+psycopg2://postgres:Zautomatyzowany@db.qdipiatvpvnhanwpzqhy.supabase.co:5432/postgres"
+DB_URL = "postgresql+psycopg2://postgres:[HASLO DO BAZY]@db.qdipiatvpvnhanwpzqhy.supabase.co:5432/postgres"
 engine = create_engine(DB_URL)
 
 KATALOG_PRODUKTOW = ["Laptop", "Myszka bezprzewodowa", "Monitor 4K", "Klawiatura mechaniczna", "Słuchawki"]
@@ -21,7 +21,7 @@ def dopasuj_produkt(brudna_nazwa):
 
 
 print("KROK 1: Wczytywanie brudnych danych z Excela...")
-df = pd.read_excel("C:\\Users\\karol\\PycharmProjects\\Zautomatyzowany-system-raportowania\\surowe_dane.xlsx",sheet_name=0, header=0)
+df = pd.read_excel("[SCIEZKA DO PLIKU]",sheet_name=0, header=0)
 
 print("KROK 2: Rozpoczynam inteligentne czyszczenie danych...")
 df.dropna(subset=['ID'], inplace=True)
